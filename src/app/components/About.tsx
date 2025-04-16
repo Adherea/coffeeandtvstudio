@@ -10,9 +10,23 @@ export default function About() {
     <>
       <section id="about">
         <div className="relative py-5 px-5">
-          <Image src={KiriBawah} alt="Kiri Bawah" width={150} height={150} className="lg:block absolute hidden bottom-0 left-0 w-32 md:w-40 lg:w-52" />
+          <Image
+            src={KiriBawah}
+            alt="Kiri Bawah"
+            width={150}
+            height={150}
+            className="absolute bottom-0 left-0 w-32 md:w-40 lg:w-52 -z-10 
+             hidden pc:block hiddenAt:hidden"
+          />
 
-          <Image src={KananAtas} alt="Kanan Atas" width={150} height={150} className="lg:block absolute hidden top-0 right-0 w-32 md:w-40 lg:w-52" />
+          <Image
+            src={KananAtas}
+            alt="Kanan Atas"
+            width={150}
+            height={150}
+            className="absolute top-0 right-0 w-32 md:w-40 lg:w-52 -z-10 
+             hidden pc:block hiddenAt:hidden"
+          />
 
           <div className="max-w-5xl mx-auto text-center">
             <div className=" flex items-center justify-center gap-4">

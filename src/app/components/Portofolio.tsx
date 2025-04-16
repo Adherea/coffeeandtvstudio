@@ -11,6 +11,10 @@ import logo3 from "../../../public/images/Interface web cntv ICON Portfolio-04.p
 import logo4 from "../../../public/images/Interface web cntv ICON Portfolio-05.png";
 import logo5 from "../../../public/images/Interface web cntv ICON Portfolio-06.png";
 import logo6 from "../../../public/images/Assets new Interface web cntv-07.png";
+import bekgron from "../../../public/images/Interface web cntv-14.png";
+import web1 from "../../../public/images/icon thumbs website-01.png";
+import web2 from "../../../public/images/icon thumbs website-02.png";
+import web3 from "../../../public/images/imani.png";
 
 import logo7 from "../../../public/images/logo/1.png";
 import logo8 from "../../../public/images/logo/2.png";
@@ -28,6 +32,7 @@ const videoList = ["/videos/1.mp4", "/videos/2.mp4", "/videos/3.mp4", "/videos/4
 export default function Portfolio() {
   const [PopUpLogo, setPopUpLogo] = useState(false);
   const [isVideoPopupOpen, setIsVideoPopupOpen] = useState(false);
+  const [isPopupWebsite, setisPopupWebsite] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(videoList[0]); // Default video pertama
   const [selectedImage, setSelectedImage] = useState<string | null>(null); // Buat simpen gambar yang diklik
 
@@ -38,13 +43,17 @@ export default function Portfolio() {
   // Handle klik gambar utama
   const handleClick = (index: number) => {
     if (index === 0) {
-      setPopUpLogo(true);
+      window.open("https://drive.google.com/drive/folders/10DQOCfGHNeMzMsGeg6RkmV0_iBi36Kek?usp=sharing", "_blank");
     } else if (index === 2) {
-      setIsVideoPopupOpen(true);
+      window.open("https://drive.google.com/drive/folders/1Jb53BeJUloHpg1YX3VipZWnplNOj_jEu?usp=sharing", "_blank");
     } else if (index === 4) {
-      window.open("https://imanihackingbootcamp.com/", "_blank");
+      setisPopupWebsite(true);
     } else if (index === 5) {
-      window.open("https://drive.google.com/drive/folders/1DOaqlzXqT-FKtUHukNDBzFlFldSNh9yG", "_blank");
+      window.open("https://drive.google.com/drive/folders/1DOaqlzXqT-FKtUHukNDBzFlFldSNh9yG?usp=sharing", "_blank");
+    } else if (index === 1) {
+      window.open("https://drive.google.com/drive/folders/1YLpHTP6vKbv2W4fM8NA3tVazd0zll9Ip?usp=sharing", "_blank");
+    } else if (index === 3) {
+      window.open("https://drive.google.com/drive/folders/1Pk24fjBKM_W9_9EWecPZga37ypAemi8K?usp=sharing", "_blank");
     }
   };
 
@@ -62,19 +71,16 @@ export default function Portfolio() {
     <>
       <section className="max-w-7xl md:mx-auto md:px-11 pt-12 md:pt-28" data-aos="fade-up" data-aos-duration="1000" id="portfolio">
         <h1 className="font-bold text-2xl md:text-4xl pt-20 md:pt-0 py-10 text-center">Portfolio</h1>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:max-w-fit py-5 lg:max-w-2xl px-4 max-w-fit mx-auto md:px-5">
-          {[logo1, logo2, logo3, logo4, logo5, logo6].map((img, index) => (
-            <div key={index} className="cursor-pointer" onClick={() => handleClick(index)}>
-              <div className="relative w-32 h-32 md:w-36 md:h-36">
-                <Image src={img} alt={`logo-${index}`} layout="fill" objectFit="contain" />
+        <div className="min-h-screen bg-no-repeat bg-[length:80%] bg-left md:bg-right-top" style={{ backgroundImage: "url('/images/Interface web cntv-14.png')" }}>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:max-w-fit py-5 lg:max-w-2xl px-4 max-w-fit mx-auto md:px-5">
+            {[logo1, logo2, logo3, logo4, logo5, logo6].map((img, index) => (
+              <div key={index} className="cursor-pointer" onClick={() => handleClick(index)}>
+                <div className="relative w-32 h-32 md:w-36 md:h-36">
+                  <Image src={img} alt={`logo-${index}`} layout="fill" objectFit="contain" />
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-        <div className="w-fit mx-auto my-10">
-          <a href="https://drive.google.com/drive/folders/1HIyYjzo1y_dufcbrMpWKDGb3PCdzR84k" className="bg-black rounded-full text-white py-1 px-10 w-fit mx-auto">
-            More
-          </a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -108,6 +114,32 @@ export default function Portfolio() {
             </button>
             <div className="relative w-64 h-64 md:w-[500px] md:h-[500px] rounded-full">
               <Image src={selectedImage} alt="Zoomed Image" layout="fill" objectFit="contain" className="rounded-full w-1/4" />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Popup Website */}
+      {isPopupWebsite && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" onClick={() => setisPopupWebsite(false)}>
+          <div className="bg-white p-5 rounded-lg relative max-w-md w-full mx-4" onClick={(e) => e.stopPropagation()}>
+            <button className="absolute -top-2 -right-2 text-xl bg-white text-black border border-gray-300 shadow-md px-3 py-1 rounded-full" onClick={() => setisPopupWebsite(false)}>
+              ✖
+            </button>
+            <h2 className="text-center text-xl pb-3 font-bold">Select a Website</h2>
+            <div className="grid grid-cols-3 gap-4 justify-center text-center">
+              <a className="flex flex-col items-center" href="https://akariautismcenter.com/" target="_blank" rel="noopener noreferrer">
+                <Image src={web2} alt="Website 1" width={100} height={100} className="cursor-pointer" />
+                <span className="mt-2">Akari</span>
+              </a>
+              <a className="flex flex-col items-center" href="https://keuangannews.id/" target="_blank" rel="noopener noreferrer">
+                <Image src={web1} alt="Website 2" width={100} height={100} className="cursor-pointer" />
+                <span className="mt-2">KeuanganNews</span>
+              </a>
+              <a className="flex flex-col items-center" href="https://imanihackingbootcamp.com/" target="_blank" rel="noopener noreferrer">
+                <Image src={web3} alt="Website 3" width={100} height={100} className="cursor-pointer" />
+                <span className="mt-2">Imani Hacking</span>
+              </a>
             </div>
           </div>
         </div>
